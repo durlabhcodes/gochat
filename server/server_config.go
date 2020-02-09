@@ -1,8 +1,18 @@
 package server
 
-import "github.com/sirupsen/logrus"
+import (
+	"bufio"
+	"fmt"
+	"net"
+)
 
-//ServerConfig func
-func ServerConfig() {
-	logrus.Info("Init Server Config")
+//ServerInit func
+func ServerInit() {
+	listener, _ := net.Listen("tcp", ":8585")
+	conn, _ := listener.Accept()
+
+	for {
+		message, _ := bufio.NewReader(conn).ReadString('\n')
+		fmt.Println("Message : ", message)
+	}
 }

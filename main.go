@@ -16,11 +16,11 @@ func main() {
 	switch *mode {
 	case 0:
 		logrus.Info("Initiating Server")
-		server.ServerConfig()
+		server.ServerInit()
 		break
 	case 1:
 		logrus.Info("Initiating Client")
-		client.ClientConfig()
+		client.ClientInit()
 		break
 	}
 }
